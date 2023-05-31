@@ -1,5 +1,7 @@
 <script setup lang="ts">
 const online = useOnline()
+
+const { data } = await useFetch('/api/sigma-bugbug')
 </script>
 
 <template>
@@ -18,6 +20,10 @@ const online = useOnline()
         </div>
       </template>
     </Suspense>
+    <details open>
+      <summary>data</summary>
+      <pre>{{ JSON.stringify(data, null, 2) }}</pre>
+    </details>
     <InputEntry />
   </div>
 </template>
